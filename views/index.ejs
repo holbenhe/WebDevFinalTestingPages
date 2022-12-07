@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web development final project - Henry Holben</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="title"> 
+        <H1>Textbook Wizard</H1>
+    </div>
+    
+    <div id="account">
+        <a href="./accountPage.html" id="info">Create an account (Save your credit card info!)</a>
+    </div>
+    <div id="accPage">
+        <a href="./accountHub.html">Account page</a>
+    </div>
+    <div id="info">
+        <p>
+            Welcome to Textbook Wizard! Here you will be able to find
+            where to buy the cheapest textbook that you are looking for.
+            In the text field below input the name of the textbook that you are looking for.
+        </p>
+    </div>
+    <div id="textbookInput">
+        <label>Name of textbook:</label><br>
+        <input type="text" id="textbookName">
+        <button type ="button" id="textbookNameSubmit">Search</button>
+        <!-- <form id="info">
+            Name of textbook:<br> <input type="text" name="textbookName" id="input">
+            
+            <input type="submit" value="Find Textbooks" id="TextbookFinderButton">
+         </form> -->
+    </div>
+
+    <script>
+document.getElementById("textbookNameSubmit").onclick = function(){
+    var textbook = document.getElementById("textbookName").value;
+    document.getElementById("AmazonLink").href=("https://www.amazon.com/s?k=" + textbook);
+    document.getElementById("abeBooksLink").href=("https://www.abebooks.com/servlet/SearchResults?kn=" + textbook);
+    document.getElementById("barnesAndNobleLink").href=("https://www.barnesandnoble.com/s/" + textbook);
+    document.getElementById("bigWordsLink").href=("https://www.bigwords.com/search?tab=get&pageNumber=1&searchType=Books&keywords=" + textbook + "&isbn=&author=&publisher=");
+    document.getElementById("booksRunLink").href=("https://booksrun.com/search/" + textbook);
+    document.getElementById("campusBooksLink").href=("https://www.campusbooks.com/books/search?keywords=" + textbook);
+    document.getElementById("cheapestTextbooksLink").href=("https://www.cheapesttextbooks.com/IM/?keyval=" + textbook);
+    document.getElementById("cheggLink").href=("https://www.chegg.com/search?q=" + textbook + "&trackid=ad90db16b2d8&strackid=960d7c13ba81&contentType=textbooks");
+    document.getElementById("ecampusLink").href=("https://www.ecampus.com/search-results?terms=" + textbook);
+    }
+    </script>
+
+    <div>
+        <p id="info"> Here are some possible websites</p>
+        <a href="https://www.abebooks.com/" id="abeBooksLink">
+            <img alt="Abe Books" src="./Images/AbeBooksLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.amazon.com/" id="AmazonLink">
+            <img alt="Amazon" src="Images/AmazonLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.barnesandnoble.com/" id="barnesAndNobleLink">
+            <img alt="Barnes and Noble" src="Images/BarnesAndNobleLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.bigwords.com/" id="bigWordsLink">
+            <img alt="Big Words" src="Images/BigWordsLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://booksrun.com/" id="booksRunLink"> 
+            <img alt="Books Run" src="Images/BooksRunLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.campusbooks.com/" id="campusBooksLink">
+            <img alt="Campus Books" src="Images/CampusBooksLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.cheapesttextbooks.com/" id="cheapestTextbooksLink">
+            <img alt="Cheapest Textbooks" src="Images/CheapestTextbooks.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <a href="https://www.chegg.com/books" id="cheggLink">
+            <img alt="Chegg" src="Images/CheggLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+         <!-- <a href="https://www.collegebooksdirect.com/">
+            <img alt="College Books Direct" src="Images/CollegeBooksDirectLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br> -->
+         <a href="https://www.ecampus.com/" id="ecampusLink">
+            <img alt="E Campus" src="Images/ECampusLogo.png"
+            width=150" height="70">
+         </a>
+         <button>add textbook to cart</button>
+         <br>
+    </div>
+
+    <div>
+        <p id="info">If you would like, leave a review on one of the websites</p>
+        
+        <form class="container" method="post" action="/">
+            Website Name
+            Write exactly as: Abe Books, Amazon, Barnes and Noble, Big Words, Books Run, Campus Books, Cheapest Textbooks, Chegg, or E Campus <br> 
+            <div class="form-group">
+                <input class="form-control" name="website">
+            </div>
+            Your review
+            <div class="form-group">
+                <textarea class="form-control" name="review"></textarea>
+            </div>
+            <button>Submit Review</button>
+         </form>
+    </div>
+
+    <div>
+        <p>Read website reviews</p>
+        <form>
+            <select name="website" onchange="showWebsite(this.value)">
+                <option value="">Select a website</option>
+                <option value="1">Abe Books</option>
+                <option value="2">Amazon</option>
+                <option value="3">Barnes and Noble</option>
+                <option value="4">Books Run</option>
+                <option value="5">Campus Books</option>
+                <option value="6">Cheapest Textbooks</option>
+                <option value="7">Chegg</option>
+                <option value="8">E Campus</option>
+            </select>
+        </form>
+        <br />
+        <div id="txt-hint"><b>Review will be listed here...</b></div>
+        <script src="logic.js" async defer></script>
+    </div>
+</body>
+</html>

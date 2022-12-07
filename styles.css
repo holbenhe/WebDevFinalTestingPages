@@ -1,0 +1,38 @@
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+
+table, td, th{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th{
+    text-align: left;
+}
+
+body {
+    background-color: grey;
+}
+H1 {
+    color: lightblue;
+    position: relative;
+    left: 40%;
+   
+}
+
+#title {
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    background-color: gray;
+}
+
+#textbookInput {
+    position: relative;
+}
+
+#info {
+    color: white;
+}
